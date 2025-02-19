@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovementInputSystem : MonoBehaviour
+public class PlayerInputActions : MonoBehaviour
 {
     public float moveSpeed = 5f;
     private Rigidbody2D rb;
@@ -28,7 +28,7 @@ public class PlayerMovementInputSystem : MonoBehaviour
         inputActions.Gameplay.Disable();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         Move();
     }
