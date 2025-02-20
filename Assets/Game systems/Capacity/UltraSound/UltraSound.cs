@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class UltraSound : Capacity
@@ -6,5 +7,14 @@ public class UltraSound : Capacity
     {
         Debug.Log("UltraSound");
         TimerManager.StartTimer(cooldown, ExecuteCapacity);
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Ennemy"))
+        {
+            other.GetComponent<Ennemies>().TakeDamage(damage);
+        }
     }
 }

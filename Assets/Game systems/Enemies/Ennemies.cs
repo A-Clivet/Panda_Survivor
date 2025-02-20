@@ -4,13 +4,13 @@ using UnityEngine;
 public abstract class Ennemies : MonoBehaviour
 {
    [Header("Movement")]
-   [SerializeField] GameObject target;
-   [SerializeField] float speed = 1.0f;
-   private float step;
+   [SerializeField] private GameObject target;
+   [SerializeField] private float speed = 1.0f;
+   private float _step;
    
    [Header("Stats")]
-   [SerializeField] float health = 100.0f;
-   [SerializeField] float damage = 10.0f;
+   [SerializeField] protected int health = 10;
+   [SerializeField] protected int damage = 2;
    
    protected virtual void Update()
    {
@@ -19,18 +19,26 @@ public abstract class Ennemies : MonoBehaviour
 
    protected virtual void Move()
    {
-      step = speed * Time.deltaTime;
-      transform.position = Vector2.MoveTowards(transform.position, target.transform.position, step);
+      _step = speed * Time.deltaTime;
+      transform.position = Vector2.MoveTowards(transform.position, target.transform.position, _step);
    }
 
-    void OnTriggerEnter(Collider other)
+   protected virtual void OnTriggerEnter2D(Collider2D other)
    {
-      print(other.name + " took " + damage + " damage");
       if(other.CompareTag("Player"))
       {
-         //other.GetComponent<Player>().TakeDamage(damage);
+         other.GetComponent<PlayerStats>().TakeDamage(damage);
          
          Destroy(this.gameObject);
+      }
+   }
+   
+   public void TakeDamage(int pDamage)
+   {
+      health -= pDamage;
+      if (health <= 0)
+      {
+         Destroy(gameObject);
       }
    }
 }
