@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
 
-public abstract class Ennemies : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
    [Header("Movement")]
-   [SerializeField] private GameObject target;
+   public GameObject target;
    [SerializeField] private float speed = 1.0f;
    private float _step;
    
