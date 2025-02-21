@@ -11,6 +11,9 @@ public abstract class Enemy : MonoBehaviour
    [Header("Stats")]
    [SerializeField] protected int health = 10;
    [SerializeField] protected int damage = 2;
+   [SerializeField] protected int dropXP = 2;
+   [SerializeField] protected GameObject soul;
+   [SerializeField] protected GameObject xpOrbe;
    
    protected virtual void Update()
    {
@@ -38,7 +41,20 @@ public abstract class Enemy : MonoBehaviour
       health -= pDamage;
       if (health <= 0)
       {
+         SoulDrop();
+         Instantiate(soul, transform.position, Quaternion.identity);
          Destroy(gameObject);
       }
+   }
+   
+   protected void SoulDrop()
+   {
+      Instantiate(xpOrbe, transform.position, Quaternion.identity);
+   }
+   
+   protected void XPDrop()
+   {
+      GameObject xp = Instantiate(xpOrbe, transform.position, Quaternion.identity);
+      xp.GetComponent<XPOrbe>().xpValue = dropXP;
    }
 }

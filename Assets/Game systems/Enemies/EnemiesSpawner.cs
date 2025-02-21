@@ -22,6 +22,9 @@ public class EnemiesSpawner : MonoBehaviour
         SpawnEnnemy();
     }
 
+    //TODO: rajouter un systeme de vague et de spawn d'ennemis differents
+    
+    
     private void SpawnEnnemy()
     {
         NewEnemy = Instantiate(enemy, SpawnPosition(), Quaternion.identity);
