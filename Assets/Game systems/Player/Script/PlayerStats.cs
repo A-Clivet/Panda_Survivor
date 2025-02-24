@@ -44,10 +44,12 @@ public class PlayerStats : MonoBehaviour
     private void LevelUp()
     {
         _xp -= _xpRequired;
-        _xpRequired += 10;
+        _xpRequired += 100;
         XpChanged?.Invoke(_xp, _xpRequired);
         _level++;
-        //mettre sur pause le jeu et afficher le choix des bonus
+        TimerManager.Pause();
+        //afficher le choix des bonus
+        TimerManager.Resume();
     }
 
     public void AddSoul(int soulValue)

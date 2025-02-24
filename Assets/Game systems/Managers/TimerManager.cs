@@ -102,4 +102,23 @@ public class TimerManager : MonoBehaviour
         _activeTimers.Clear();
     }
     #endregion
+
+    #region TimeScale
+
+    public static void Pause()
+    {
+        Time.timeScale = 0;
+    }
+    
+    public static void Resume()
+    {
+        Time.timeScale = 1;
+    }
+    
+    public static void SetTimeScale(float timeScale)
+    {
+        Time.timeScale = timeScale;
+    }
+
+    #endregion
 }
