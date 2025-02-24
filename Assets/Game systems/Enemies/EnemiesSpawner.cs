@@ -7,7 +7,6 @@ public enum EnnemyType
 }
 public class EnemiesSpawner : MonoBehaviour
 {
-    private GameObject NewEnemy;
     private Vector2 ennemyPosition;
     [SerializeField] private float cooldown = 2.0f;
     [SerializeField] private GameObject target;
@@ -19,19 +18,17 @@ public class EnemiesSpawner : MonoBehaviour
     
     private void Start()
     {
-        SpawnEnnemy();
+        SpawnEnemy();
     }
 
     //TODO: rajouter un systeme de vague et de spawn d'ennemis differents
     
     
-    private void SpawnEnnemy()
+    private void SpawnEnemy()
     {
-        NewEnemy = Instantiate(enemy, SpawnPosition(), Quaternion.identity);
-        NewEnemy.GetComponent<Enemy>().target = target;
-        TimerManager.StartTimer(cooldown, SpawnEnnemy);
+        Instantiate(enemy, SpawnPosition(), Quaternion.identity, this.transform).GetComponent<Enemy>().target = target;
+        TimerManager.StartTimer(cooldown, SpawnEnemy);
     }
-    
     
     private Vector2 SpawnPosition()
     {

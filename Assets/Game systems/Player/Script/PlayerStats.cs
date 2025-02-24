@@ -30,22 +30,21 @@ public class PlayerStats : MonoBehaviour
         print("dead");
     }
     
-    
+    //TODO ; deplacer le systeme d'xp dans un script a part
     public void AddXP(int xp)
     {
         _xp += xp;
-        XpChanged?.Invoke(_xp, _xpRequired);
         if (_xp >= _xpRequired)
         {
             LevelUp();
         }
+        XpChanged?.Invoke(_xp, _xpRequired);
     }
 
     private void LevelUp()
     {
         _xp -= _xpRequired;
         _xpRequired += 100;
-        XpChanged?.Invoke(_xp, _xpRequired);
         _level++;
         TimerManager.Pause();
         //afficher le choix des bonus

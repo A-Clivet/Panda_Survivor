@@ -14,6 +14,7 @@ public abstract class Enemy : MonoBehaviour
    [SerializeField] protected int dropXP = 2;
    [SerializeField] protected GameObject soul;
    [SerializeField] protected GameObject xpOrbe;
+   //TODO : faire un SO pour les stats des ennemis
    
    protected virtual void Update()
    {
@@ -42,7 +43,7 @@ public abstract class Enemy : MonoBehaviour
       if (health <= 0)
       {
          SoulDrop();
-         Instantiate(soul, transform.position, Quaternion.identity);
+         XPDrop();
          Destroy(gameObject);
       }
    }
