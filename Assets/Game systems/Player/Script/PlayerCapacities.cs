@@ -11,7 +11,7 @@ public class PlayerCapacities : MonoBehaviour
 
     private void Awake()
     {
-        Capacities.Add(CapacityEnum.Ultrasound, _capacities[0]);
+        Capacities.Add(CapacityEnum.UltraSound, _capacities[0]);
         Capacities.Add(CapacityEnum.Wingtip, _capacities[1]);
     }
     

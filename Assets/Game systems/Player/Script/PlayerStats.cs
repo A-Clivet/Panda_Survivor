@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : MonoBehaviour, IDamageable
 {
     public event Action<int, int> XpChanged;
     
@@ -16,9 +16,9 @@ public class PlayerStats : MonoBehaviour
         _health = _maxHealth;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int pDamage)
     {
-        _health -= damage;
+        _health -= pDamage;
         if (_health <= 0)
         {
             Die();

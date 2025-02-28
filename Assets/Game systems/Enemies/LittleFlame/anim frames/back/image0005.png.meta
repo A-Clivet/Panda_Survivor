@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e0e9ea3cf71c9ae4e82fad93756b7f1d
+guid: a6ce905c64f9045459084a7a6958381b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9131043434827515086
-    second: BAT_with_glow_0
+      213: -8566816673916824396
+    second: image0005_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BAT_with_glow_0
+      name: image0005_0
       rect:
         serializedVersion: 2
-        x: 45
-        y: 105
-        width: 805
-        height: 763
+        x: 124
+        y: 128
+        width: 769
+        height: 781
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 23b7176df54084180800000000000000
-      internalID: -9131043434827515086
+      spriteID: 4b45b4fbf9d8c1980800000000000000
+      internalID: -8566816673916824396
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BAT_with_glow_0: -9131043434827515086
+      image0005_0: -8566816673916824396
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

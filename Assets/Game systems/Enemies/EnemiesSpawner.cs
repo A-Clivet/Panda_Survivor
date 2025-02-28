@@ -9,7 +9,7 @@ public class EnemiesSpawner : MonoBehaviour
 {
     private Vector2 ennemyPosition;
     [SerializeField] private float cooldown = 2.0f;
-    [SerializeField] private GameObject target;
+    [SerializeField] private Transform target;
     [SerializeField] private GameObject enemy;
     [SerializeField] private Transform TopWall;
     [SerializeField] private Transform DownWall;
@@ -26,7 +26,11 @@ public class EnemiesSpawner : MonoBehaviour
     
     private void SpawnEnemy()
     {
-        Instantiate(enemy, SpawnPosition(), Quaternion.identity, this.transform).GetComponent<Enemy>().target = target;
+        float scale = Random.Range(0.5f, 1f);
+        
+        GameObject enemyGO = Instantiate(enemy, SpawnPosition(), Quaternion.identity, this.transform);
+        enemyGO.transform.localScale = new Vector3(scale, scale, 1);
+        enemyGO.GetComponent<Enemy>().target = target;
         TimerManager.StartTimer(cooldown, SpawnEnemy);
     }
     
@@ -36,8 +40,8 @@ public class EnemiesSpawner : MonoBehaviour
             Random.Range(LeftWall.position.x, RightWall.position.x),
             Random.Range(DownWall.position.y, TopWall.position.y));
         
-        if(Mathf.Abs(ennemyPosition.x) - Mathf.Abs(target.transform.position.x) < 10 |
-           Mathf.Abs(ennemyPosition.y) - Mathf.Abs(target.transform.position.y) < 10)
+        if(Mathf.Abs(ennemyPosition.x) - Mathf.Abs(target.position.x) < 10 |
+           Mathf.Abs(ennemyPosition.y) - Mathf.Abs(target.position.y) < 10)
         {
             SpawnPosition();
         }

@@ -20,7 +20,7 @@ public class CapacityManager : MonoBehaviour
     {
         switch (type)
         {
-            case CapacityEnum.Ultrasound:
+            case CapacityEnum.UltraSound:
                 return typeof(UltraSound);
             case CapacityEnum.Wingtip:
                 return typeof(Wingtip);

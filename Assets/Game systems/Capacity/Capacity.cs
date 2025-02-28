@@ -7,11 +7,7 @@ public abstract class Capacity : MonoBehaviour
     public float cooldown;
     protected int damage;
     protected GameObject capacityPrefab;
-
-    private void Awake()
-    {
-        // capacityPrefab = PlayerCapacities.
-    }
+    
 
     private void Start()
     {
@@ -24,7 +20,7 @@ public abstract class Capacity : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<Enemy>().TakeDamage(damage);
+            other.GetComponent<IDamageable>().TakeDamage(damage);
         }
     }
 }

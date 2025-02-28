@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
 
-public abstract class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour, IDamageable
 {
    [Header("Movement")]
-   public GameObject target;
+   public Transform target;
    [SerializeField] private float speed = 1.0f;
    private float _step;
    
@@ -24,14 +24,14 @@ public abstract class Enemy : MonoBehaviour
    protected virtual void Move()
    {
       _step = speed * Time.deltaTime;
-      transform.position = Vector2.MoveTowards(transform.position, target.transform.position, _step);
+      transform.position = Vector2.MoveTowards(transform.position, target.position, _step);
    }
 
    protected virtual void OnTriggerEnter2D(Collider2D other)
    {
       if(other.CompareTag("Player"))
       {
-         other.GetComponent<PlayerStats>().TakeDamage(damage);
+         other.GetComponent<IDamageable>().TakeDamage(damage);
          
          Destroy(this.gameObject);
       }
